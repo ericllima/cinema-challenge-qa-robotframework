@@ -1,0 +1,16 @@
+{
+  "valid_user": {
+    "name": "Test User",
+    "email": "test@cinema.com",
+    "password": "test123!"
+  },
+    "invalid_user": {
+    "email": "invalid@cinema.com",
+    "password": "invalid123"
+  },
+  "admin_user": {
+    "name": "Admin User",
+    "email": "admin@cinema.com",
+    "password": "admin123"
+  }
+}
