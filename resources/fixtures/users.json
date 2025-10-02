@@ -2,15 +2,15 @@
   "valid_user": {
     "name": "Test User",
     "email": "test@cinema.com",
-    "password": "test123!"
+    "password": "Test123"
   },
-    "invalid_user": {
+  "invalid_user": {
     "email": "invalid@cinema.com",
     "password": "invalid123"
   },
   "admin_user": {
     "name": "Admin User",
     "email": "admin@cinema.com",
-    "password": "admin123"
+    "password": "Admin123"
   }
 }

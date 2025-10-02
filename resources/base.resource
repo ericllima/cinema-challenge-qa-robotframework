@@ -1,9 +1,13 @@
 *** Settings ***
+
+Library    libs/database.py
 Library     Browser
 Library     RequestsLibrary
 Library     Collections
 Library     String
-Resource    variables/config.robot
+Library     JSONLibrary
+
+Resource    variables/config.resource
 
 *** Keywords ***
 Setup Browser
@@ -41,3 +45,24 @@ Wait And Fill
     [Arguments]    ${locator}    ${text}
     Wait For Elements State    ${locator}    visible    timeout=${DEFAULT_TIMEOUT}
     Fill Text    ${locator}    ${text}
+
+Do Login
+    [Arguments]    ${user}
+
+    Submit Login Form    ${user}
+    User Should Be Logged In    ${user}[name]
+
+Get Fixtures
+    [Arguments]    ${file_name}    ${scenario}
+
+    ${data}    Load Json From File
+    ...    ${TEST_DATA_DIR}${file_name}.json
+    ...    encoding=utf-8
+
+    RETURN    ${data}[${scenario}]
+
+Reset user from database
+    [Arguments]    ${user}
+
+    Clean User From Database    ${user}[email]
+    Insert User Into Database    ${user}
