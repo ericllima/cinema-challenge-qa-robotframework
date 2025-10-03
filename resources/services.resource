@@ -44,6 +44,14 @@ POST a user login
 
     Set Test Variable     ${token}
 
+POST a user logout
+    ${headers}=    Create Dictionary    Authorization=${token}
+    ${resp}    POST    url=${API_BASE_URL}/auth/logout
+    ...    headers=${headers}
+    ...    expected_status=404
+
+    RETURN    ${resp}
+
 POST a user login with invalid credentials
     ${resp}=    POST auth request    /auth/login    invalid_user    401
     RETURN    ${resp}
@@ -78,4 +86,13 @@ POST a user register with empty email
     ${user}=    Get Fixtures    users    valid_user
     ${extra_fields}=    Create Dictionary    name=${user}[name]
     ${resp}=    POST auth request    /auth/register    valid_user    400    email    ${extra_fields}
+    RETURN    ${resp}
+
+GET user profile
+    [Arguments]    ${auth_token}=${token}
+    ${headers}=    Create Dictionary    Authorization=${auth_token}
+    ${resp}    GET    url=${API_BASE_URL}/auth/me
+    ...    headers=${headers}
+    ...    expected_status=any
+
     RETURN    ${resp}

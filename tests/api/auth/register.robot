@@ -3,7 +3,7 @@ Documentation    Teste de registro de usuário na API
 Library          RequestsLibrary
 Resource         ../../../resources/services.resource
 
-Suite Setup      Create Session    api    ${API_BASE_URL}
+Suite Setup      API Session
 
 *** Test Cases ***
 Test Register Success

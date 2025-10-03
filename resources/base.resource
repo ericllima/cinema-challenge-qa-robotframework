@@ -21,9 +21,9 @@ Teardown Browser
     [Documentation]    Fecha o browser após os testes
     Close Browser
 
-Setup API Session
+API Session
     [Documentation]    Configura sessão para testes de API
-    Create Session    cinema_api    ${API_BASE_URL}    timeout=${API_TIMEOUT}
+    Create Session    api    ${API_BASE_URL}    timeout=${API_TIMEOUT}
 
 Teardown API Session
     [Documentation]    Remove sessão de API

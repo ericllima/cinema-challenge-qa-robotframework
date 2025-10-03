@@ -3,7 +3,7 @@ Documentation    Teste de login na API
 Library          RequestsLibrary
 Resource         ../../../resources/services.resource
 
-Suite Setup      Create Session    api    ${API_BASE_URL}
+Suite Setup      API Session
 
 *** Test Cases ***
 Test Login Success
