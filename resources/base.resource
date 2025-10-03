@@ -15,7 +15,7 @@ Setup Browser
     New Browser    ${BROWSER}    headless=${HEADLESS}
     New Context    viewport={'width': 1920, 'height': 1080}
     New Page       ${BASE_URL}
-    Set Browser Timeout    ${DEFAULT_TIMEOUT}
+    Set Browser Timeout    ${PAGE_TIMEOUT}
 
 Teardown Browser
     [Documentation]    Fecha o browser após os testes

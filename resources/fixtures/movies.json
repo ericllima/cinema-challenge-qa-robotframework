@@ -1,0 +1,24 @@
+{
+  "shrek": {
+    "title": "Shrek",
+    "synopsis": "Um ogro verde embarca em uma aventura para resgatar uma princesa e descobrir o verdadeiro significado da amizade.",
+    "genre": "Animação",
+    "duration": 90,
+    "classification": "Livre",
+    "director": "Andrew Adamson",
+    "cast": ["Mike Myers", "Eddie Murphy", "Cameron Diaz"],
+    "releaseDate": "2025-10-13",
+    "poster": "shrek.png"
+  },
+  "interestelar": {
+    "title": "Interestelar",
+    "synopsis": "Em um futuro próximo, a Terra está morrendo. Um grupo de exploradores deve viajar através de um buraco de minhoca no espaço para garantir a sobrevivência da humanidade.",
+    "genre": "Ficção Científica",
+    "duration": 169,
+    "classification": "12 anos",
+    "director": "Christopher Nolan",
+    "cast": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"],
+    "releaseDate": "2025-10-17",
+    "poster": "interestelar.png"
+  }
+}
