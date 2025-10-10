@@ -5,38 +5,21 @@
       "theater": "theater_1_id", 
       "datetime": "2025-01-15T14:00:00.000Z",
       "fullPrice": 20,
-      "halfPrice": 10,
-      "seats": [
-        {"row": "A", "number": 1, "status": "available"},
-        {"row": "A", "number": 2, "status": "available"},
-        {"row": "A", "number": 3, "status": "reserved"},
-        {"row": "A", "number": 4, "status": "available"},
-        {"row": "A", "number": 5, "status": "occupied"}
-      ]
+      "halfPrice": 10
     },
     {
       "movie": "shrek_movie_id",
       "theater": "theater_1_id",
       "datetime": "2025-01-15T19:00:00.000Z", 
       "fullPrice": 20,
-      "halfPrice": 10,
-      "seats": [
-        {"row": "B", "number": 1, "status": "available"},
-        {"row": "B", "number": 2, "status": "available"},
-        {"row": "B", "number": 3, "status": "reserved"}
-      ]
+      "halfPrice": 10
     },
     {
       "movie": "shrek_movie_id",
       "theater": "theater_2_id",
       "datetime": "2025-01-16T16:00:00.000Z",
       "fullPrice": 30,
-      "halfPrice": 15,
-      "seats": [
-        {"row": "A", "number": 1, "status": "available"},
-        {"row": "A", "number": 2, "status": "reserved"},
-        {"row": "A", "number": 3, "status": "available"}
-      ]
+      "halfPrice": 15
     }
   ],
   "interestelar_sessions": [
@@ -45,24 +28,14 @@
       "theater": "theater_3_id",
       "datetime": "2025-01-17T13:00:00.000Z",
       "fullPrice": 35,
-      "halfPrice": 17.5,
-      "seats": [
-        {"row": "C", "number": 1, "status": "available"},
-        {"row": "C", "number": 2, "status": "available"},
-        {"row": "C", "number": 3, "status": "occupied"}
-      ]
+      "halfPrice": 17.5
     },
     {
       "movie": "interestelar_movie_id", 
       "theater": "theater_3_id",
       "datetime": "2025-01-17T22:00:00.000Z",
       "fullPrice": 35,
-      "halfPrice": 17.5,
-      "seats": [
-        {"row": "D", "number": 1, "status": "available"},
-        {"row": "D", "number": 2, "status": "reserved"},
-        {"row": "D", "number": 3, "status": "available"}
-      ]
+      "halfPrice": 17.5
     }
   ]
 }

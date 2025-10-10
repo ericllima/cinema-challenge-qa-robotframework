@@ -98,34 +98,11 @@ def setup_test_sessions():
     with open(fixture_path, 'r', encoding='utf-8') as f:
         sessions_data = json.load(f)
     
-    def generate_theater_seats(theater_type, base_seats=None):
-        """Generate realistic seat configuration based on theater type"""
-        if base_seats:
-            return base_seats  # Use fixture seats if provided
-        
-        # Generate seats like backend seed
-        rows = 8 if theater_type != 'IMAX' else 10
-        seats_per_row = 10 if theater_type != 'IMAX' else 12
-        row_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-        
-        seats = []
-        for i in range(rows):
-            row = row_letters[i]
-            for j in range(1, seats_per_row + 1):
-                status = 'available'
-                # Add some randomness like backend
-                if random.random() < 0.1:  # 10% reserved
-                    status = 'reserved'
-                elif random.random() < 0.05:  # 5% occupied
-                    status = 'occupied'
-                
-                seats.append({
-                    'row': row,
-                    'number': j,
-                    'status': status
-                })
-        
-        return seats
+    def get_standard_seats():
+        """Load seats from seats.json fixture"""
+        seats_path = os.path.join(os.getcwd(), 'resources', 'fixtures', 'seats.json')
+        with open(seats_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
     
     session_count = 0
     for session_key, session_list in sessions_data.items():
@@ -150,14 +127,9 @@ def setup_test_sessions():
                     theater_object_id = ObjectId(theater_ids[theater_key])
                     session_data['theater'] = theater_object_id
                 
-                # Get theater info and generate appropriate seats
-                theater_info = theater_lookup.get(str(theater_object_id))
-                if theater_info:
-                    theater_type = theater_info.get('type', 'standard')
-                    session_data['seats'] = generate_theater_seats(
-                        theater_type, 
-                        session_data.get('seats')  # Use fixture seats if provided
-                    )
+                # Use seats from fixture or load standard seats
+                if 'seats' not in session_data:
+                    session_data['seats'] = get_standard_seats()
             
             # Add createdAt field as per API spec
             session_data['createdAt'] = datetime.utcnow()
@@ -174,6 +146,12 @@ def insert_theater(theater):
     result = theaters.insert_one(theater)
     print(f"Theater inserted: {theater['name']}")
     return str(result.inserted_id)
+
+@keyword('Clean reservations from database')
+def clean_reservations():
+    reservations = db['reservations']
+    result = reservations.delete_many({})
+    print(f"Cleaned {result.deleted_count} reservations")
 
 @keyword('Setup test theaters')
 def setup_test_theaters():
