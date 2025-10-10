@@ -7,9 +7,9 @@ ${BASE_URL}                http://localhost:3002
 ${API_BASE_URL}            http://localhost:3000/api/v1
 
 # Timeouts
-${TIMEOUT}         10
-${API_TIMEOUT}             5
-${PAGE_TIMEOUT}       20
+${TIMEOUT}    8
+${API_TIMEOUT}    5
+${PAGE_TIMEOUT}    10
 
 # Browser Settings
 ${BROWSER}                 chromium
