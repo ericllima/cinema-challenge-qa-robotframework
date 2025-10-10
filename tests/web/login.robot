@@ -20,7 +20,10 @@ Test Login Success
     Should Show Success Message    Login realizado com sucesso!
 
 Test Login With Invalid Email
-    [Documentation]    Login com email inválido deve falhar
+    [Documentation]    Login com email inválido deve falhar,
+    ${user}=    Get Fixtures    users    valid_user
+    Clean user from database    ${user}[email]
+    Insert user into database    ${user}
     
     Go To    ${BASE_URL}/login
     
@@ -28,8 +31,9 @@ Test Login With Invalid Email
     Fill Text    css=input[placeholder="Sua senha"]    ${user}[password]
     Click    css=button >> text=Entrar
 
+    ${current_url}=    Get Url
+    Should Contain    ${current_url}    /login
     Wait For Elements State    css=input[placeholder="Seu e-mail"]    visible    timeout=${TIMEOUT}
-    Get Url    should contain    /login
 
 Test Login With Invalid Password
     [Documentation]    Login com senha inválida deve falhar
@@ -41,9 +45,10 @@ Test Login With Invalid Password
     Fill Text    css=input[placeholder="Seu e-mail"]    ${user}[email]
     Fill Text    css=input[placeholder="Sua senha"]    wrongpassword
     Click    css=button >> text=Entrar
-
+    
+    ${current_url}=    Get Url
+        Should Contain    ${current_url}    /login
     Wait For Elements State    css=input[placeholder="Seu e-mail"]    visible    timeout=${TIMEOUT}
-    Get Url    should contain    /login
 
 Test Login With Empty Email
     [Documentation]    Login com email vazio deve falhar
