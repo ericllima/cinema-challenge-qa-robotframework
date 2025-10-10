@@ -1,6 +1,6 @@
 *** Settings ***
 
-Library    libs/database.py
+Library     libs/database.py
 Library     Browser
 Library     RequestsLibrary
 Library     Collections
@@ -60,9 +60,3 @@ Get Fixtures
     ...    encoding=utf-8
 
     RETURN    ${data}[${scenario}]
-
-Reset user from database
-    [Arguments]    ${user}
-
-    Clean User From Database    ${user}[email]
-    Insert User Into Database    ${user}

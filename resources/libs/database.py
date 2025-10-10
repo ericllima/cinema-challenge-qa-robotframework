@@ -8,20 +8,15 @@ client = MongoClient('mongodb://localhost:27017')
 
 db = client['cinema-app']
 
+#===USERS===
 @keyword('Clean user from database')
-def reset_user(user_email):
+def remove_user(user_email):
     users = db['users']
 
     u = users.find_one({'email': user_email})
 
     if (u):
         users.delete_many({'email': user_email})
-
-@keyword('Remove user from database')
-def remove_user(email):
-    users = db['users']
-    users.delete_many({'email': email})
-    print('removing user by ' + email)
 
 @keyword('Insert user into database')
 def insert_user(user):
@@ -38,7 +33,9 @@ def insert_user(user):
     users.insert_one(doc)
     print(user)
 
-@keyword('Insert movie into database')
+#===MOVIES===
+@keyword('Insert movie '
+         'abase')
 def insert_movie(movie):
     movies = db['movies']
     movies.delete_many({'title': movie['title']})
@@ -46,16 +43,11 @@ def insert_movie(movie):
     print(f"Movie inserted: {movie['title']}")
     return str(result.inserted_id)
 
-@keyword('Remove movie from database')
+@keyword('Clean movie from database')
 def remove_movie(movie_title):
     movies = db['movies']
     result = movies.delete_many({'title': movie_title})
     print(f"Deleted {result.deleted_count} movie(s): {movie_title}")
-
-@keyword('Reset movie from database')
-def reset_movie(movie):
-    remove_movie(movie['title'])
-    return insert_movie(movie)
 
 @keyword('Setup test movies')
 def setup_test_movies():

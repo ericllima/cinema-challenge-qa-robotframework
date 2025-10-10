@@ -52,16 +52,17 @@ POST a user logout
 
     RETURN    ${resp}
 
+# /auth/login - 400 - Invalid credentials
 POST a user login with invalid credentials
-    ${resp}=    POST auth request    /auth/login    invalid_user    401
+    ${resp}=    POST auth request    /auth/login    invalid_user    400
     RETURN    ${resp}
 
 POST a user login with empty email
-    ${resp}=    POST auth request    /auth/login    valid_user    401    email
+    ${resp}=    POST auth request    /auth/login    valid_user    400    email
     RETURN    ${resp}
 
 POST a user login with empty password
-    ${resp}=    POST auth request    /auth/login    valid_user    401    password
+    ${resp}=    POST auth request    /auth/login    valid_user    400    password
     RETURN    ${resp}
 
 POST a user register
@@ -96,3 +97,10 @@ GET user profile
     ...    expected_status=any
 
     RETURN    ${resp}
+
+Reset user from database
+    [Arguments]    ${user}
+
+    Clean User From Database    ${user}[email]
+    ${user_id}=    Insert User Into Database    ${user}
+    RETURN    ${user_id}

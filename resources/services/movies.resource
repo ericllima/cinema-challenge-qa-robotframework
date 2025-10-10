@@ -26,3 +26,10 @@ GET movie sessions
     ...    expected_status=any
 
     RETURN    ${resp}
+
+Reset movie from database
+    [Arguments]    ${movie}
+
+    Clean movie from database    ${movie}[title]
+    ${movie_id}=    Insert movie into database    ${movie}
+    RETURN    ${movie_id}

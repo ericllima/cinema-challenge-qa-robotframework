@@ -5,7 +5,7 @@
     "password": "Test123"
   },
   "invalid_user": {
-    "email": "invalid@cinema.com",
+    "email": "invalidcinemacom",
     "password": "invalid123"
   },
   "admin_user": {
