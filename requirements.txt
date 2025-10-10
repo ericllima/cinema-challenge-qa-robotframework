@@ -2,3 +2,5 @@ robotframework==7.3.2
 robotframework-browser==19.8.0
 robotframework-requests==0.9.7
 robotframework-jsonlibrary==0.5
+pymongo==4.10.1
+bcrypt==4.1.2

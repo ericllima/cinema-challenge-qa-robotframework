@@ -1,0 +1,20 @@
+{
+  "theater_1": {
+    "name": "Sala 1",
+    "type": "Standard",
+    "capacity": 80,
+    "features": ["2D", "Comfortable Seats"]
+  },
+  "theater_2": {
+    "name": "Sala 2",
+    "type": "VIP",
+    "capacity": 50,
+    "features": ["2D", "3D", "Reclining Seats", "Food Service"]
+  },
+  "theater_3": {
+    "name": "Sala 3",
+    "type": "IMAX",
+    "capacity": 120,
+    "features": ["2D", "3D", "IMAX", "Dolby Atmos"]
+  }
+}

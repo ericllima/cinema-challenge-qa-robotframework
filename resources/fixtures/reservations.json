@@ -1,0 +1,50 @@
+{
+  "valid_reservation": {
+    "session": "session_id_placeholder",
+    "seats": [
+      {
+        "row": "A",
+        "number": 1,
+        "type": "full"
+      },
+      {
+        "row": "A", 
+        "number": 2,
+        "type": "half"
+      }
+    ],
+    "paymentMethod": "credit_card"
+  },
+  "single_seat_reservation": {
+    "session": "session_id_placeholder",
+    "seats": [
+      {
+        "row": "B",
+        "number": 5,
+        "type": "full"
+      }
+    ],
+    "paymentMethod": "pix"
+  },
+  "multiple_seats_reservation": {
+    "session": "session_id_placeholder", 
+    "seats": [
+      {
+        "row": "C",
+        "number": 1,
+        "type": "full"
+      },
+      {
+        "row": "C",
+        "number": 2,
+        "type": "full"
+      },
+      {
+        "row": "C",
+        "number": 3,
+        "type": "half"
+      }
+    ],
+    "paymentMethod": "debit_card"
+  }
+}
